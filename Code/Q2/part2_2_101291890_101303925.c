@@ -13,10 +13,8 @@ int main(void)
         perror("fork failed");
         return 1;
     } else if (pid == 0) { // child (P2)
-        // Replace child with the separate program (part2)
-        execlp("./part2", "part2", (char *)NULL);
-        perror("exec failed");
-        _exit(127);
+        // Replace child with the separate program
+        execlp("./part2", "part2");
     } else { // parent (P1)
         printf("P1 started (pid=%d), child pid=%d\n", getpid(), pid);
         int counter = 0;
